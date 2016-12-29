@@ -2,6 +2,7 @@
 
 WiFiUDP Udp;
 int localPort = 9999;
+char emptyBuffer[0];
 
 void setupUDP() {
   // Começa a escutar informações na porta configurada
@@ -27,9 +28,11 @@ String lerPacoteUDP() {
     Udp.write("dado recebido: ");
     Udp.write(packetBuffer);
     Udp.endPacket();
-  }
 
-  // retorna o pacote
-  return packetBuffer;
-}
+    // retorna o pacote
+    return packetBuffer;
+  }
+  
+    return emptyBuffer;
+ }
 
